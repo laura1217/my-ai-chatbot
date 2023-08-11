@@ -15,10 +15,10 @@ export async function POST(req: Request) {
 
   const messages = [{
     'role': 'system',
-    'content': process.env.PROMPT
+    'content': '你現在扮演詩人李白'
   }, ...histories.slice(-3, -1), {
     'role': 'user',
-    'content': `用戶輸入：${question}`
+    'content': ` 用唐詩總結回覆內容 """${question}""" `
   }]
 
   const res = await openai.createChatCompletion({
